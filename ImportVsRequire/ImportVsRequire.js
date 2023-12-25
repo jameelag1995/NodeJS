@@ -25,17 +25,14 @@
 // CommonJS
 // Command-line API
 
-function exportFunc() {
-    console.log("this function is being exported");
-}
-function exportFunc2() {
-    console.log("this function is being exported");
-}
-function exportFunc3() {
+// export function exportFunc() {
+//     console.log("this function is being exported");
+// }
+export function exportFunc2() {
     return "this function is being exported";
 }
 
-module.exports = { exportFunc, exportFunc2, exportFunc3 };
 
-import fs from "fs";
-fs.writeFileSync("new.txt", exportFunc3);
+export default function () {
+    console.log("this function is being exported");
+}
