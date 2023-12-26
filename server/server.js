@@ -4,15 +4,13 @@ const server = http.createServer((req, res) => {
     const { url, method } = req;
     console.log("method: ", method);
     console.log("url: ", url);
+    
     switch (url) {
         case "/about":
             switch (method) {
                 case "GET":
                     const htmlFile = readFileSync("./src/index.html", "utf-8");
                     res.end(htmlFile);
-                    if (url === "/style.css") {
-                        console.log(url);
-                    }
                     return;
                 case "DELETE":
                     res.end("delete in about");
@@ -43,7 +41,7 @@ const server = http.createServer((req, res) => {
         case "/style.css":
             const css = readFileSync("./src/style.css", "utf-8");
             res.end(css);
-            break;
+            return;
     }
 });
 
